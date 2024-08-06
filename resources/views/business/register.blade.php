@@ -22,21 +22,21 @@
                     </svg>
                     <h1 class="tw-dw-text-3xl tw-dw-font-bold"> {{ config('app.name', 'ultimatePOS') }} - @lang('business.register_and_get_started_in_minutes')</h1> --}}
                     <h1 class="tw-text-lg md:tw-text-xl tw-font-semibold tw-text-[#1e1e1e]">
-                            {{ config('app.name', 'ultimatePOS') }}
-                      </h1>
-                      <h2 class="tw-text-sm tw-font-medium tw-text-gray-500">
-                            @lang('business.register_and_get_started_in_minutes')
-                      </h2>
+                        {{ config('app.name', 'ultimatePOS') }}
+                    </h1>
+                    <h2 class="tw-text-sm tw-font-medium tw-text-gray-500">
+                        @lang('business.register_and_get_started_in_minutes')
+                    </h2>
                 </div>
-            {!! Form::open([
-                'url' => route('business.postRegister'),
-                'method' => 'post',
-                'id' => 'business_register_form',
-                'files' => true,
-            ]) !!}
-            @include('business.partials.register_form')
-            {!! Form::hidden('package_id', $package_id) !!}
-            {!! Form::close() !!}
+                {!! Form::open([
+                    'url' => route('business.postRegister'),
+                    'method' => 'post',
+                    'id' => 'business_register_form',
+                    'files' => true,
+                ]) !!}
+                @include('business.partials.register_form')
+                {!! Form::hidden('package_id', $package_id) !!}
+                {!! Form::close() !!}
             </div>
         </div>
     </div>
