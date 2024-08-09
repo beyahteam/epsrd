@@ -28,10 +28,11 @@
                 <span class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                 </span>
-                {!! Form::text('start_date', date('Y-m-d'), [
+                {!! Form::text('start_date', null, [
                     'class' => 'form-control start-date-picker',
                     'placeholder' => __('business.start_date'),
                     'readonly',
+                    'id' => 'start_date', // Add an ID for easy access
                 ]) !!}
             </div>
         </div>
@@ -82,7 +83,7 @@
         </div>
     </div>
 
-    <div class="col-md-6">
+    {{-- <div class="col-md-6">
         <div class="form-group">
             {!! Form::label('alternate_number', __('business.alternate_number') . ':') !!}
             <div class="input-group">
@@ -95,7 +96,7 @@
                 ]) !!}
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="clearfix"></div>
 
@@ -431,3 +432,17 @@
     </div>
     <div class="clearfix"></div>
 </fieldset>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+        var yyyy = today.getFullYear();
+
+        today = mm + '/' + dd + '/' + yyyy; // Format: MM/DD/YYYY
+
+        $('#start_date').val(today); // Set the value
+    });
+</script>

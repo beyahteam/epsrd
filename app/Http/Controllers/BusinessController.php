@@ -184,6 +184,11 @@ class BusinessController extends Controller
                 'currency_precision', 'quantity_precision'  // ~ adding currency_precision and quantity_precision ~
             ]);
 
+            // ~ Check start_date is null or not ~
+            if (empty($business_details['start_date'])) {
+                $business_details['start_date'] = Carbon::now()->format('Y-m-d');
+            }
+
             $business_location = $request->only([
                 'name', 'country', 'state', 'city', 'zip_code', 'landmark',
                 'website', 'mobile', 'alternate_number',
